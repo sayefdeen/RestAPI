@@ -1,8 +1,9 @@
 saif\rest\restapi\DAO\User.class
+saif\rest\restapi\Servlets\RegisterServlet.class
 saif\rest\restapi\Services\CRUD.class
 saif\rest\restapi\DAO\Students.class
 saif\rest\restapi\DAO\Course.class
+saif\rest\restapi\Servlets\LoginServlet.class
 saif\rest\restapi\Services\Course.class
 saif\rest\restapi\Services\Students.class
 saif\rest\restapi\DataBase\ConnectionPool.class
-saif\rest\restapi\Servlets\HelloServlet.class

@@ -5,7 +5,7 @@ CREATE TABLE if not exists users
 (
     id serial auto_increment,
     uuid varchar(150) not null,
-    name varchar(50) not null ,
+    email varchar(50) not null ,
     password varchar(250) not null
 );
 
