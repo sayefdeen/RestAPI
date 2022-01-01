@@ -8,6 +8,16 @@
 
 </head>
 <body>
+
+<%
+    response.setHeader("Cache-Control","no-cache , no-store , must-revalidate");
+    response.setHeader("Pragma","no-cache");
+    response.setDateHeader ("Expires", 0);
+
+    if(session.getAttribute("user") == null){
+        response.sendRedirect("login.go");
+    }
+%>
 <div class="sidebar-container">
     <div class="sidebar-logo">
         Welcome ${user.getName().split("@")[0]}
@@ -20,7 +30,7 @@
             </a>
         </li>
         <li>
-            <a href="#">Log out
+            <a href="${pageContext.request.contextPath}/logout.do">Log out
             </a>
         </li>
     </ul>
@@ -38,6 +48,7 @@
             <p>Click on the course ID to get its statistics</p>
 
         </div>
+        <c:if test = "${allCourses != null}">
         <table>
             <thead>
             <tr>
@@ -58,21 +69,23 @@
             </c:forEach>
             </tbody>
         </table>
+        </c:if>
 
-        <table>
-            <thead>
-            <tr>
-                <th>Course Id</th>
-                <th>Course Name</th>
-                <th>Course Result</th>
-                <th>Course Section</th>
-                <th>Total Mark Sum</th>
-                <th>Average</th>
-                <th>Max</th>
-                <th>Min</th>
-            </tr>
-            </thead>
-            <tbody>
+        <c:if test="${courseDetails != null}">
+            <table>
+                <thead>
+                <tr>
+                    <th>Course Id</th>
+                    <th>Course Name</th>
+                    <th>Course Result</th>
+                    <th>Course Section</th>
+                    <th>Total Mark Sum</th>
+                    <th>Average</th>
+                    <th>Max</th>
+                    <th>Min</th>
+                </tr>
+                </thead>
+                <tbody>
                 <tr>
                     <td data-column="Course Id">${courseDetails.getId()} </td>
                     <td data-column="Course Name">${courseDetails.getName()}</td>
@@ -84,9 +97,9 @@
                     <td data-column="Min">${courseDetails.getMin()}</td>
 
                 </tr>
-            </tbody>
-        </table>
-
+                </tbody>
+            </table>
+        </c:if>
     </div>
 </div>
 </body>

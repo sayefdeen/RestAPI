@@ -47,6 +47,5 @@ public class LoginServlet extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
         }
 
-
     }
 }

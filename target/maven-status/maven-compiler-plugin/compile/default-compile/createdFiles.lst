@@ -9,3 +9,4 @@ saif\rest\restapi\Services\Students.class
 saif\rest\restapi\Servlets\CourseDetails.class
 saif\rest\restapi\DataBase\ConnectionPool.class
 saif\rest\restapi\Servlets\Courses.class
+saif\rest\restapi\Servlets\Logout.class

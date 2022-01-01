@@ -21,6 +21,10 @@ td, th {
     font-size: 18px;
 }
 
+td a {
+    text-decoration: none;
+}
+
 @media
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {

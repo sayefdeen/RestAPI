@@ -6,5 +6,7 @@ C:\Users\Rawad\IdeaProjects\RestAPI\src\main\java\saif\rest\restapi\Services\CRU
 C:\Users\Rawad\IdeaProjects\RestAPI\src\main\java\saif\rest\restapi\DAO\User.java
 C:\Users\Rawad\IdeaProjects\RestAPI\src\main\java\saif\rest\restapi\DataBase\ConnectionPool.java
 C:\Users\Rawad\IdeaProjects\RestAPI\src\main\java\saif\rest\restapi\Servlets\RegisterServlet.java
+C:\Users\Rawad\IdeaProjects\RestAPI\src\main\java\saif\rest\restapi\Servlets\CourseDetails.java
+C:\Users\Rawad\IdeaProjects\RestAPI\src\main\java\saif\rest\restapi\Servlets\Logout.java
 C:\Users\Rawad\IdeaProjects\RestAPI\src\main\java\saif\rest\restapi\Services\Students.java
 C:\Users\Rawad\IdeaProjects\RestAPI\src\main\java\saif\rest\restapi\DAO\Course.java
