@@ -1,4 +1,4 @@
-package saif.rest.restapi;
+package saif.rest.restapi.Servlets;
 
 import java.io.*;
 import javax.servlet.http.*;
