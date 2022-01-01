@@ -29,8 +29,10 @@ public class LoginServlet extends HttpServlet {
                 if(ss.checkPass(password,student.getPassword())){
                     resp.setStatus(200);
                     req.setAttribute("user", student);
+                    req.getSession().setAttribute("user", student);
                     req.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(req,resp);
                 }else{
+                    resp.setStatus(401);
                     req.setAttribute("errorMessage", "Invalid Credentials!! Check your email or password");
                     req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
                 }
