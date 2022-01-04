@@ -9,12 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class Course implements CRUD{
+public class CourseService implements CRUD{
 
 
     @Override
-    public void add(Object object) {
-
+    public boolean add(Object object) {
+        return false;
     }
 
     @Override

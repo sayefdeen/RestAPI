@@ -2,7 +2,7 @@ package saif.rest.restapi.Services;
 
 public interface CRUD<T> {
 
-    public void add(T object) throws Exception;
+    public boolean add(T object) throws Exception;
 
     public void update(int id) ;
 

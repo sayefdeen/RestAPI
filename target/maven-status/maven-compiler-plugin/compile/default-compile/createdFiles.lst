@@ -2,11 +2,12 @@ saif\rest\restapi\Servlets\RegisterServlet.class
 saif\rest\restapi\DAO\Students.class
 saif\rest\restapi\DAO\Course.class
 saif\rest\restapi\Servlets\LoginServlet.class
-saif\rest\restapi\Services\Course.class
+saif\rest\restapi\Services\CourseService.class
 saif\rest\restapi\Servlets\Courses.class
 saif\rest\restapi\Servlets\Logout.class
 saif\rest\restapi\DAO\User.class
 saif\rest\restapi\Services\CRUD.class
-saif\rest\restapi\Services\Students.class
+saif\rest\restapi\Log\Logger.class
 saif\rest\restapi\Servlets\CourseDetails.class
 saif\rest\restapi\DataBase\ConnectionPool.class
+saif\rest\restapi\Services\StudentsService.class

@@ -1,27 +1,31 @@
 package saif.rest.restapi.Servlets;
 
 import saif.rest.restapi.DAO.Students;
+import saif.rest.restapi.Log.Logger;
+import saif.rest.restapi.Services.StudentsService;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+        try{
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
+        }catch (Exception e){
+            Logger.getLogger().addLog("Something Went Bad!! " + " " + e.getMessage());
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)  {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        saif.rest.restapi.Services.Students ss = new saif.rest.restapi.Services.Students();
+        StudentsService ss = new StudentsService();
 
         try {
             Students student =ss.getUser(email);
@@ -30,10 +34,12 @@ public class LoginServlet extends HttpServlet {
                     resp.setStatus(200);
                     req.setAttribute("user", student);
                     req.getSession().setAttribute("user", student);
+                    Logger.getLogger().addLog("User has logIn " + " " + student.getId());
                     req.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(req,resp);
                 }else{
                     resp.setStatus(401);
                     req.setAttribute("errorMessage", "Invalid Credentials!! Check your email or password");
+                    Logger.getLogger().addLog("Invalid Credentials" + " " + student.getId());
                     req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
                 }
             }else{
@@ -44,7 +50,12 @@ public class LoginServlet extends HttpServlet {
         } catch (Exception e) {
             resp.setStatus(500);
             req.setAttribute("errorMessage", "Something went Bad!! Please try again");
-            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
+            Logger.getLogger().addLog("Something went Bad!!" + " " + e.getMessage());
+            try{
+                req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
+            }catch (Exception message){
+                Logger.getLogger().addLog("Something Went Bad!! " + " " + message.getMessage());
+            }
         }
 
     }
