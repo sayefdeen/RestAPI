@@ -15,6 +15,4 @@ public class Students extends User {
         super(uuid,name, password);
     }
 
-
-
 }

@@ -1,5 +1,7 @@
 package saif.rest.restapi.DataBase;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -10,7 +12,8 @@ public class ConnectionPool {
 
     public static Connection getConnection() throws Exception{
         if(con == null){
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/students?useSSL=false&serverTimezone=UTC","root","0000");
+            Dotenv dotenv = Dotenv.configure().load();
+            con = DriverManager.getConnection("jdbc:mysql://localhost:"+ dotenv.get("PORT")+"/"+dotenv.get("DATABASE_NAME")+"?useSSL=false&serverTimezone=UTC",dotenv.get("DATABASE_USER"),dotenv.get("DATABASE_PASSWORD"));
             return con;
         }
         return con;
